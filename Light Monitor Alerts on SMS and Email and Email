@@ -1,15 +1,15 @@
 //Email and SMS configuration
 
-SID = 'ACd817beafb7a5124f9458b7763ad0b771' 
-AUTH_TOKEN = '3b8047fdde3fa2afff60883ee1db2f82' 
-FROM_NUMBER = '+16467608207'
-TO_NUMBER = '+919205932106'
-MAILGUN_API_KEY = '8eb1ec79c4395a43cb834599ee8ae8e3-1d8af1f4-0e01d00c' 
-SANDBOX_URL= 'sandboxe49674ca51f74247a9209ba0949d123e.mailgun.org' 
+SID = ' ' 
+AUTH_TOKEN = ' ' 
+FROM_NUMBER = ' '
+TO_NUMBER = ' '
+MAILGUN_API_KEY = ' ' 
+SANDBOX_URL= ' ' 
 SENDER_EMAIL = 'test@' + SANDBOX_URL  # No need to modify this. The sandbox URL$
-RECIPIENT_EMAIL = 'kanishkkaushal2002@gmail.com'
-API_KEY = 'd76476a7-b67a-4e76-b266-f475e6e4558f'
-DEVICE_ID = 'BOLT8022336'
+RECIPIENT_EMAIL = ' '
+API_KEY = 'Enter your Own'
+DEVICE_ID = 'BOLTXXXX'
 
 //Light Monitor
 
