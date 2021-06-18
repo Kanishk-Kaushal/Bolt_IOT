@@ -1,0 +1,16 @@
+// CODE ON BOLT CLOUD //
+
+<!DOCTYPE html>
+<html>
+    <head>
+<script type="text/javascript" src="https://cloud.boltiot.com/static/js/boltCommands.js"></script>
+<script type="text/javascript">setKey('{{ApiKey}}','{{Name}}');</script>
+</head>
+<body>
+<center>
+  <button onclick="analogWrite(0, 0);">OFF</button>
+  <button onclick="analogWrite(0, 100);">Frequency 1</button>
+  <button onclick="analogWrite(0, 200);">Frequency 2</button>
+</center>
+</body>
+</html>
