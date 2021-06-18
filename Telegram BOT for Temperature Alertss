@@ -1,0 +1,64 @@
+//Configuration 
+
+bolt_api_key = "Enter your own" # This is your Bolt Cloud API Key
+device_id = "BOLTXXXX"          # This is the device ID and will be similar to BOLTXXXX w$
+telegram_chat_id = " "          # This is the channel ID of the created T$
+telegram_bot_id = "   "         # This is the bot ID o$
+threshold = 250                 # Threshold beyond which the alert should be sent
+
+
+//1.CREATE YOUR TELEGRAM BOT USING BOT FATHER
+//2.CREATE TELEGRAM CHANNEL
+//3.ADD BOT IN THE CHANNEL
+
+//Telegram BOT code
+
+import requests                 # for making HTTP requests
+import json                     # library for handling JSON data
+import time                     # module for sleep operation
+
+from boltiot import Bolt        # importing Bolt from boltiot module
+import conf                     # config file
+
+mybolt = Bolt(conf.bolt_api_key, conf.device_id)
+
+def get_sensor_value_from_pin(pin):
+    """Returns the sensor value. Returns -999 if request fails"""
+    try:
+        response = mybolt.analogRead(pin)
+        data = json.loads(response)
+        if data["success"] != 1:
+            print("Request not successfull")
+            print("This is the response->", data)
+            return -999
+        sensor_value = int(data["value"])
+        return sensor_value
+    except Exception as e:
+        print("Something went wrong when returning the sensor value")
+        print(e)
+        return -999
+
+
+def send_telegram_message(message):
+    """Sends message via Telegram"""
+    url = "https://api.telegram.org/" + conf.telegram_bot_id + "/sendMessage"
+    data = {
+        "chat_id": conf.telegram_chat_id,
+        "text": message
+    }
+    try:
+        response = requests.request(
+            "POST",
+            url,
+            params=data
+        )
+        print("This is the Telegram URL")
+        print(url)
+        print("This is the Telegram response")
+        print(response.text)
+        telegram_data = json.loads(response.text)
+        return telegram_data["ok"]
+    except Exception as e:
+        print("An error occurred in sending the alert message via Telegram")
+        print(e)
+        return False
