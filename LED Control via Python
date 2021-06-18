@@ -1,6 +1,6 @@
 from boltiot import Bolt
-api_key = "d76476a7-b67a-4e76-b266-f475e6e4558f"
-device_id  = "BOLT8022336"
+api_key = "Enter your Own"
+device_id  = "BOLTXXXX"
 mybolt = Bolt(api_key, device_id)
 response = mybolt.digitalWrite('0', 'HIGH')
 print (response)
